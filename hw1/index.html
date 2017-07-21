@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>再來考幾分才行</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <!-- 引入我們自己寫的 CSS -->
+    <link rel="stylesheet" href="./css/index.css">
+</head>
+
+<body style="background-color:#dddcb7;">
+    <div class="container">
+        <div class="jumbotron">
+            <h1>再來考幾分才行</h1>
+        </div>
+        <!-- 設考試總共:期中*2(各25%)、期末*1(30%)、小考*4(各5%)，只剩下期末跟一次小考還沒考 期中成績:85、87；小考成績:96、100、92 -->
+
+        <div class="form-group row"> <label for=" example-number-input" class="col-2 col-form-label">以往各次期中/小考/報告/作業分數</label>
+            <div class="col-10">
+                <input class="form-control" type="number" value="" id="score">
+            </div>
+
+        </div>
+
+        <div class="form-group row">
+            <label for="example-number-input" class="col-2 col-form-label">其所占成績百分比 ( %，填入數字 1 ~ 100 )</label>
+            <div class="col-10">
+                <input class="form-control" type="number" value="" id="ratio">
+            </div>
+        </div>
+        <button color="" type="button" class="btn btn-primary" id="input">輸入</button>
+        <button type="button" class="btn btn-primary" id="clear">清除</button>
+        <div class="row" id="data">
+
+
+        </div>
+        <div class="form-group row">
+            <label for="example-number-input" class="col-2 col-form-label">希望得到的學期成績</label>
+            <div class="col-10">
+                <input class="form-control" type="number" value="" id="hope">
+            </div>
+        </div>
+
+        <button type="button" class="btn btn-primary" id="compute">計算</button>
+
+        <div class="form-group row">
+            <label for="example-number-input" class="col-2 col-form-label">之後的考試/報告/作業平均要拿這個分數</label>
+            <div class="col-10">
+                <input class="form-control" type="number" id="result">
+            </div>
+        </div>
+    </div>
+
+
+    <!-- jQuery first, then Tether, then Bootstrap JS. -->
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js " integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n " crossorigin="anonymous "></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js " integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb " crossorigin="anonymous "></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js " integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn " crossorigin="anonymous "></script>
+
+    <!-- 引入我們自己寫的 JavaScript -->
+    <script src="./js/index.js "></script>
+</body>
+
+
+
+
+</html>
