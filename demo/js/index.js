@@ -10,7 +10,7 @@ var rand = function(start, end) {
 
 var back = function(temp) {
     console.log(temp);
-    temp.attr("src", "./poker/back.png");
+    $(temp).attr("src", "./poker/back.png");
     $("[card$=" + cardnow + "]").attr("src", "./poker/back.png");
 }
 
@@ -40,26 +40,31 @@ var choose = function(n) {
     }
 
     $("img").on('click', function() {
-        console.log(cardnow)
+
         if (isopen == false) {
             var card = $(this).attr("card");
             $(this).attr("src", "./" + n + "/pic" + card + ".png");
             isopen = true;
             cardnow = card;
+            console.log(cardnow)
         } else {
             var card = $(this).attr("card");
             if (Math.ceil(card / 2) == Math.ceil(cardnow / 2)) {
                 $(this).attr("src", "./" + n + "/pic" + card + ".png");
             } else {
                 $(this).attr("src", "./" + n + "/pic" + card + ".png");
-                var t = this + "";
-                setTimeout("back(" + t + ")", 1000);
+                obj = this;
+                setTimeout(function() {
+                    console.log(obj);
+                    $(obj).attr("src", "./poker/back.png");
+                    $("[card=" + cardnow + "]").attr("src", "./poker/back.png");
+                    isopen = false;
+                    cardnow = 0;
+
+                }, 1000)
+
             }
-
-            isopen = false;
-            cardnow = 0;
-
         }
-    });
 
+    });
 }
