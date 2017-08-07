@@ -28,6 +28,18 @@ $('#query').on('click', function() {
                 // TODO HW2 作業寫在這裡
 
 
+                $("#product-list").empty();
+                $("#message").text('查詢成功');
+                for (var i = 0; i < response.data.length; i++) {
+                    var $img = $('<img>').attr("class", "thumb").attr("src", response.data[i].image);
+                    var $h3 = $('<h3>').attr("class", "title").text(response.data[i].name);
+                    var $p = $('<p>').attr("class", "price").text(response.data[i].price);
+                    var $item = $('<div>').attr("class", "item").append($img).append($h3).append($p);
+                    var $col = $('<div>').attr("class", "col-*").append($item);
+                    $("#product-list").append($col);
+
+                }
+
             } else {
                 $('#message').text('查詢失敗 (' + response.data + ')');
                 $('#dialog').modal('show');
