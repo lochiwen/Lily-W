@@ -1,41 +1,44 @@
-$('#insert').on('click', function() {
-    var data = {
-        name: $('#InputProductName').val(),
-        price: +$('#InputProductPrice').val(),
-        count: +$('#InputProductCount').val(),
-        image: $('#InputProductImage').val()
-    }
-    $.post("http://js2017-hw2.kchen.club/insert", data, function(response) {
-        if (response) {
-            if (response.result) {
-                $('#message').text('新增成功');
-            } else {
-                $('#message').text('新增失敗 (' + response.data + ')');
-            }
-        } else {
-            $('#message').text('新增失敗');
-        }
-        $('#dialog').modal('show');
-        console.log(response);
-    }, "json");
+var sum = 0
+var sum2 = 0
+$('#input').on('click', function() {
+    var s = $('#score').val()
+    var r = $('#ratio').val()
+
+    s = Number(s)
+    r = Number(r) / 100
+
+    sr = s * r
+    sum = sum + sr;
+    sum2 = sum2 + r
+
+    var $item = $('<div>')
+    $item.attr('class', 'item')
+    $item.text(r)
+    var $col = $('<div>').attr('class', 'col-1').append($item)
+    $('#data').append($col)
 })
 
-$('#query').on('click', function() {
-    $.get("http://js2017-hw2.kchen.club/query", function(response) {
-        if (response) {
-            if (response.result) {
 
-                // TODO HW2 作業寫在這裡
+$('#compute').on('click', function() {
+
+    var h = $('#hope').val()
+    h = Number(h)
+    up = h - sum
+    down = 1 - sum2
+    var result = up / down
+    $('#result').val(result)
+    if (result >= 100) { $('#result').text('請輸入正確比例'); }
+}, "json")
 
 
-            } else {
-                $('#message').text('查詢失敗 (' + response.data + ')');
-                $('#dialog').modal('show');
-            }
-        } else {
-            $('#message').text('查詢失敗');
-            $('#dialog').modal('show');
-        }
-        console.log(response);
-    }, "json");
-})
+
+
+$('#clear').on('click', function() {
+    $('#data').empty()
+    $('#result').val('')
+    $('#ratio').val('')
+    $('#score').val('')
+    $('#hope').val('')
+    sum = 0
+    sum2 = 0
+});
