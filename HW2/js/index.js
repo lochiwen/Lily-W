@@ -27,16 +27,21 @@ $('#query').on('click', function() {
 
                 // TODO HW2 作業寫在這裡
 
-
-                $("#product-list").empty();
-                $("#message").text('查詢成功');
-                for (var i = 0; i < response.data.length; i++) {
-                    var $img = $('<img>').attr("class", "thumb").attr("src", response.data[i].image);
-                    var $h3 = $('<h3>').attr("class", "title").text(response.data[i].name);
-                    var $p = $('<p>').attr("class", "price").text(response.data[i].price);
-                    var $item = $('<div>').attr("class", "item").append($img).append($h3).append($p);
-                    var $col = $('<div>').attr("class", "col-*").append($item);
-                    $("#product-list").append($col);
+                // 一開始先把商品的子元素清空
+                $('product-list').empty()
+                    // 令 quantity 指商品資料數量
+                var quantity = response.data.length
+                for (var i = 0; i < quantity; i++) {
+                    // 令商品資料庫內各項商品的圖片、商品名、價格資料為變數
+                    var image = $('<img>').attr({ class: thumb, src: response.data[i].image });
+                    var name = $('<h3>').attr({ class: title, src: response.data[i].name });
+                    var price = $('<p>').attr({ class: price, src: response.data[i].price });
+                    // 把分別抓的變數集結放到同一資料來源的商品下
+                    var eachproduct = $('<div>').attr('class', 'item').append(image).append(name).append(price);
+                    // 商品列顯示資料齊全的商品
+                    var showlist = $('<div>').attr('class', 'col-*').append(eachproduct);
+                    // 放到顯示商品的元件裡
+                    $('#product-list').append(showlist);
 
                 }
 
