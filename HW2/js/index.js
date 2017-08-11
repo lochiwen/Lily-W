@@ -21,7 +21,7 @@ $('#insert').on('click', function() {
 })
 
 $('#query').on('click', function() {
-    $.get("http://js2017-hw2.kchen.club/query", function(response) {
+    $.get("https://js2017-hw2.kchen.club/query", function(response) {
         if (response) {
             if (response.result) {
 
